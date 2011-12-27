@@ -1,6 +1,6 @@
 #!/bin/bash
 # Test script. Some of the homeworks in BI-PA1 have had a set of test
-# inputs and outputs that are distributed in an archive.
+# inputs and outputs that were distributed in an archive.
 
 die ()
 {

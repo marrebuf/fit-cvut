@@ -10,9 +10,9 @@ Homeworks and my own test exams are regular C++ sources (to clone the progtest
 environment I had to compile using g++ -Wall -pedantic). These can be built
 with the provided Makefile. Just type 'make'.
 
-Then there's the test script I've used to check the programs against reference
+Finally there's the test script I've used to check the programs against reference
 inputs and outputs that could be downloaded at the progtest website.
 
 
-You can use these files in good will, though I also welcome money and praise.
+You may use these files in good will, though I also welcome money and praise.
 
