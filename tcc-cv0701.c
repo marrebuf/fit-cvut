@@ -15,7 +15,7 @@ fact (int n)
 static void
 pascal_triangle (int n)
 {
-	int i, k;
+	int i;
 
 	if (n > 1)
 		pascal_triangle (n - 1);

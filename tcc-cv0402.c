@@ -33,14 +33,14 @@ main (int argc, char *argv[])
 	/* A ted pan Gauss. (Juliansky kalendar.) */
 	unsigned int Y, d, m, y, c, w;
 
-	Y = y_in - (m < 3);
+	Y = y_in - (m_in < 3);
 	y = Y % 100;
 	c = Y / 100;
 	d = d_in;
 	m = ((m_in + 9) % 12) + 1;
 
 	w = (d + (int) (2.6 * m - 0.2)
-		+ y + y / 4 + c / 4. - 2 * c) % 7;
+		+ y + y / 4 + c / 4 - 2 * c) % 7;
 	printf ("Den v tydnu je gaussovsky: %s\n", dny[w]);
 
 	return 0;
