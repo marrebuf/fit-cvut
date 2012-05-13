@@ -1,15 +1,16 @@
 SHELL = /bin/sh
 LIBS = -lm
+CXXFLAGS = -Wall -pedantic -ggdb -Wno-long-long
 
 TARGETS = $(basename $(wildcard ukol*.c))
 
 all: $(TARGETS)
 
 ukol%: ukol%.c
-	$(CXX) -o $@ -Wall -pedantic $< $(LIBS)
+	$(CXX) $(CXXFLAGS) -o $@ -Wall -pedantic $< $(LIBS)
 
 clean:
-	@rm -f $(TARGETS)
+	rm -f $(TARGETS)
 
 .PHONY: all clean
 
