@@ -1,0 +1,89 @@
+Drivers:
+   John Nowak
+      2012-03-01: ABC-12-34
+      2012-03-02: ABC-12-34
+      2012-03-03: DEF-56-67
+   George Smith
+      2012-03-02: DEF-56-67
+Cars:
+   ABC-12-34
+      2012-03-01: John Nowak
+      2012-03-02: John Nowak
+   DEF-56-67
+      2012-03-02: George Smith
+      2012-03-03: John Nowak
+ABC-12-34
+   2012-03-01: John Nowak
+   2012-03-02: John Nowak
+John Nowak
+   2012-03-01: ABC-12-34
+   2012-03-02: ABC-12-34
+   2012-03-03: DEF-56-67
+Drivers:
+   John Nowak
+      2012-03-01: ABC-12-34
+   George Smith
+      2012-03-02: DEF-56-67
+Cars:
+   ABC-12-34
+      2012-03-01: John Nowak
+   DEF-56-67
+      2012-03-02: George Smith
+Drivers:
+   John Nowak
+      2012-03-01: ABC-12-34
+   George Smith
+      2012-03-02: DEF-56-67
+Cars:
+   ABC-12-34
+      2012-03-01: John Nowak
+   DEF-56-67
+      2012-03-02: George Smith
+Drivers:
+   John Nowak
+      2012-03-01: ABC-12-34
+      2012-03-02: DEF-56-67
+   George Smith
+      2012-03-01: DEF-56-67
+      2012-03-02: ABC-12-34
+Cars:
+   ABC-12-34
+      2012-03-01: John Nowak
+      2012-03-02: George Smith
+   DEF-56-67
+      2012-03-01: George Smith
+      2012-03-02: John Nowak
+Drivers:
+   John Nowak
+      2012-03-01: ABC-12-34
+      2012-03-02: DEF-56-67
+   Homer Simpson
+      2012-03-03: ABC-12-34
+   George Smith
+      2012-03-01: DEF-56-67
+      2012-03-02: ABC-12-34
+Cars:
+   ABC-12-34
+      2012-03-01: John Nowak
+      2012-03-02: George Smith
+      2012-03-03: Homer Simpson
+   DEF-56-67
+      2012-03-01: George Smith
+      2012-03-02: John Nowak
+Drivers:
+   John Nowak
+      2012-03-01: ABC-12-34
+      2012-03-02: DEF-56-67
+   Homer Simpson
+      2012-03-03: DEF-56-67
+   George Smith
+      2012-03-01: DEF-56-67
+      2012-03-02: ABC-12-34
+Cars:
+   ABC-12-34
+      2012-03-01: John Nowak
+      2012-03-02: George Smith
+   DEF-56-67
+      2012-03-01: George Smith
+      2012-03-02: John Nowak
+      2012-03-03: Homer Simpson

@@ -1,0 +1,3 @@
+milk 500 ml 8.50
+bread 28.90
+beer 10 x 14.50

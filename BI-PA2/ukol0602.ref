@@ -1,0 +1,211 @@
+Window "Sample window" (10,10,600,480)
++- [1] Button "Ok" (70,394,180,48)
++- [2] Button "Cancel" (370,394,180,48)
++- [10] Label "Username:" (70,58,120,48)
++- [11] Input "chucknorris" (250,58,300,48)
++- [12] Panel (70,154,480,336)
+   +- [20] ComboBox (118,254,384,33)
+      +->Karate<
+      +- Judo
+      +- Box
+      +- Progtest
+[20] ComboBox (118,254,384,33)
++->Karate<
++- Judo
++- Box
++- Progtest
+Window "Sample window" (10,10,600,480)
++- [1] Button "Ok" (70,394,180,48)
++- [2] Button "Cancel" (370,394,180,48)
++- [10] Label "Username:" (70,58,120,48)
++- [11] Input "chucknorris@fit.cvut.cz" (250,58,300,48)
++- [12] Panel (70,154,480,336)
+   +- [20] ComboBox (118,254,384,33)
+   |  +- Karate
+   |  +- Judo
+   |  +- Box
+   |  +->Progtest<
+   +- [21] ComboBox (118,322,384,33)
+      +->PA2<
+      +- OSY
+      +- Both
+Window "Sample window" (20,30,640,520)
++- [1] Button "Ok" (84,446,192,52)
++- [2] Button "Cancel" (404,446,192,52)
++- [10] Label "Username:" (84,82,128,52)
++- [11] Input "chucknorris@fit.cvut.cz" (276,82,320,52)
++- [12] Panel (84,186,512,364)
+   +- [20] ComboBox (135,295,409,36)
+   |  +- Karate
+   |  +- Judo
+   |  +- Box
+   |  +->Progtest<
+   +- [21] ComboBox (135,368,409,36)
+      +->PA2<
+      +- OSY
+      +- Both
+Window "Sample window" (20,30,640,520)
++- [1] Button "Ok" (84,446,192,52)
++- [2] Button "Cancel" (404,446,192,52)
++- [10] Label "Username:" (84,82,128,52)
++- [11] Input "chucknorris@fit.cvut.cz" (276,82,320,52)
++- [12] Panel (84,186,512,364)
+   +- [20] ComboBox (135,295,409,36)
+   |  +- Karate
+   |  +- Judo
+   |  +- Box
+   |  +->Progtest<
+   +- [21] ComboBox (135,368,409,36)
+   |  +->PA2<
+   |  +- OSY
+   |  +- Both
+   +- [12] Panel (135,295,409,254)
+   |  +- [20] ComboBox (175,371,327,25)
+   |  |  +- Karate
+   |  |  +- Judo
+   |  |  +- Box
+   |  |  +->Progtest<
+   |  +- [21] ComboBox (175,422,327,25)
+   |     +->PA2<
+   |     +- OSY
+   |     +- Both
+   +- [12] Panel (135,295,409,254)
+   |  +- [20] ComboBox (175,371,327,25)
+   |  |  +- Karate
+   |  |  +- Judo
+   |  |  +- Box
+   |  |  +->Progtest<
+   |  +- [21] ComboBox (175,422,327,25)
+   |  |  +->PA2<
+   |  |  +- OSY
+   |  |  +- Both
+   |  +- [12] Panel (175,371,327,177)
+   |     +- [20] ComboBox (207,424,261,17)
+   |     |  +- Karate
+   |     |  +- Judo
+   |     |  +- Box
+   |     |  +->Progtest<
+   |     +- [21] ComboBox (207,459,261,17)
+   |        +->PA2<
+   |        +- OSY
+   |        +- Both
+   +- [12] Panel (135,295,409,254)
+      +- [20] ComboBox (175,371,327,25)
+      |  +- Karate
+      |  +- Judo
+      |  +- Box
+      |  +->Progtest<
+      +- [21] ComboBox (175,422,327,25)
+      |  +->PA2<
+      |  +- OSY
+      |  +- Both
+      +- [12] Panel (175,371,327,177)
+      |  +- [20] ComboBox (207,424,261,17)
+      |  |  +- Karate
+      |  |  +- Judo
+      |  |  +- Box
+      |  |  +->Progtest<
+      |  +- [21] ComboBox (207,459,261,17)
+      |     +->PA2<
+      |     +- OSY
+      |     +- Both
+      +- [12] Panel (175,371,327,177)
+         +- [20] ComboBox (207,424,261,17)
+         |  +- Karate
+         |  +- Judo
+         |  +- Box
+         |  +->Progtest<
+         +- [21] ComboBox (207,459,261,17)
+         |  +->PA2<
+         |  +- OSY
+         |  +- Both
+         +- [12] Panel (207,424,261,123)
+            +- [20] ComboBox (233,460,208,12)
+            |  +- Karate
+            |  +- Judo
+            |  +- Box
+            |  +->Progtest<
+            +- [21] ComboBox (233,485,208,12)
+               +->PA2<
+               +- OSY
+               +- Both
+[12] Panel (84,186,512,364)
++- [20] ComboBox (135,295,409,36)
+|  +- Karate
+|  +- Judo
+|  +- Box
+|  +->Progtest<
++- [21] ComboBox (135,368,409,36)
+|  +->PA2<
+|  +- OSY
+|  +- Both
++- [12] Panel (135,295,409,254)
+|  +- [20] ComboBox (175,371,327,25)
+|  |  +- Karate
+|  |  +- Judo
+|  |  +- Box
+|  |  +->Progtest<
+|  +- [21] ComboBox (175,422,327,25)
+|     +->PA2<
+|     +- OSY
+|     +- Both
++- [12] Panel (135,295,409,254)
+|  +- [20] ComboBox (175,371,327,25)
+|  |  +- Karate
+|  |  +- Judo
+|  |  +- Box
+|  |  +->Progtest<
+|  +- [21] ComboBox (175,422,327,25)
+|  |  +->PA2<
+|  |  +- OSY
+|  |  +- Both
+|  +- [12] Panel (175,371,327,177)
+|     +- [20] ComboBox (207,424,261,17)
+|     |  +- Karate
+|     |  +- Judo
+|     |  +- Box
+|     |  +->Progtest<
+|     +- [21] ComboBox (207,459,261,17)
+|        +->PA2<
+|        +- OSY
+|        +- Both
++- [12] Panel (135,295,409,254)
+   +- [20] ComboBox (175,371,327,25)
+   |  +- Karate
+   |  +- Judo
+   |  +- Box
+   |  +->Progtest<
+   +- [21] ComboBox (175,422,327,25)
+   |  +->PA2<
+   |  +- OSY
+   |  +- Both
+   +- [12] Panel (175,371,327,177)
+   |  +- [20] ComboBox (207,424,261,17)
+   |  |  +- Karate
+   |  |  +- Judo
+   |  |  +- Box
+   |  |  +->Progtest<
+   |  +- [21] ComboBox (207,459,261,17)
+   |     +->PA2<
+   |     +- OSY
+   |     +- Both
+   +- [12] Panel (175,371,327,177)
+      +- [20] ComboBox (207,424,261,17)
+      |  +- Karate
+      |  +- Judo
+      |  +- Box
+      |  +->Progtest<
+      +- [21] ComboBox (207,459,261,17)
+      |  +->PA2<
+      |  +- OSY
+      |  +- Both
+      +- [12] Panel (207,424,261,123)
+         +- [20] ComboBox (233,460,208,12)
+         |  +- Karate
+         |  +- Judo
+         |  +- Box
+         |  +->Progtest<
+         +- [21] ComboBox (233,485,208,12)
+            +->PA2<
+            +- OSY
+            +- Both
