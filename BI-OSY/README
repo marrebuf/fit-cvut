@@ -1,0 +1,9 @@
+Since I had to strip the numeric ID's from the filenames, and it might not be
+evident what this is all about, I'll provide some explanation:
+
+There were two assignments: the first one was about implementing a trivial
+"secret service", and intended to exercise us in using threads.  For the
+second one, we were able to choose: either implement a simple filesystem,
+or aspire for only half of the possible points and rather implement RAID 5
+in software.
+
