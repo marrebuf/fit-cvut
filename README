@@ -1,0 +1,18 @@
+This repository is home for the various source codes I had to create at
+FIT ČVUT during my studies.  I am probably the first person to publish this
+stuff, and I hope this collection is actually going to be helpful to someone.
+
+I've removed as much copyrighted content as possible.  This is the very reason
+why you won't be able to find specifications for the assignments.  If you're
+longing for them, you'll probably be able to find them at http://fit-wiki.cz
+
+You may use these files in good will, though I also welcome money and praise.
+
+
+The Makefiles really do work.  If you're using a GNU system, just go into
+a directory and type `make' to build all of the contained sources.  You might
+need to install some additional programs, though.
+
+Also worth noting, most of the programs have scored the full number of points
+that we were able to get for the assignments.
+
