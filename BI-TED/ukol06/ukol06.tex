@@ -1,0 +1,41 @@
+\documentclass[a4paper,12pt]{letter}
+\usepackage{datatool}
+\usepackage[level]{datetime}
+\usepackage[nohead,nofoot]{geometry}
+ \geometry{
+  left=39.4mm,
+  right=33.4mm,
+  top=46.4mm,
+  bottom=34.5mm
+ }
+
+\newdateformat{mydate}{\ordinal{DAY}~\monthname[\THEMONTH]~\THEYEAR}
+\mydate
+
+\DTLloaddb{data}{data.csv}
+\setlength{\textwidth}{136.9mm}
+
+\address{Grass Bank \\ 19~Southwark Street \\ London \\ SE1~1RQ \\ UK}
+\signature{Lisa June \\ Loan officer}
+
+\begin{document}
+\DTLforeach*{data}{\jmeno=cfirstname,\prijmeni=csurname,\titul=ctitle,\adresa=caddr,\mesto=ccity,%
+\psc=cpostcode,\stav=cstat,\cislo=refnum,\den=appday,\mesic=appmonth,\rok=appyear}{%
+
+\begin{letter}{\jmeno~\prijmeni \\ \adresa \\ \mesto,~\psc \\
+ \vskip 3mm ~ \\ Reference number: \cislo}
+
+\opening{Dear \DTLifstringeq*{\stav}{ACCEPT}{\titul~\prijmeni}{Client},}
+
+This is regarding your loan application that was filed on \formatdate{\den}{\mesic}{\rok}.
+\DTLifstringeq*{\stav}{ACCEPT}{We are pleased to inform you that your application has been approved and it will be confirmed subject to the completion of formalities.}{After careful consideration we regret to inform you that we cannot process your application at this time.}
+
+\DTLifstringeq*{\stav}{ACCEPT}{I request you to visit any Grass Bank office branch any time during banking hours, with a valid ID.}{Let me assure you that you can reapply for a credit evaluation after 1~year.}
+
+\closing{\DTLifstringeq*{\stav}{ACCEPT}{Yours sincerely}{Yours faithfully}}
+
+\end{letter}
+
+} \end{document}
+
+

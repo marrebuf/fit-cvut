@@ -1,0 +1,3 @@
+cfirstname,csurname,ctitle,caddr,ccity,cpostcode,cstat,refnum,appday,appmonth,appyear
+Sophie,Smith,Miss,"19 Connaught Road","Portmouth",EX4 4HG,REJECT,14581,20,11,2011
+Lily,Wilson,Mrs,"22 Baker Road","London",FA5 5NH,ACCEPT,26989,20,12,2011
