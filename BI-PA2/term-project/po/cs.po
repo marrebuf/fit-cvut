@@ -1,0 +1,311 @@
+# Czech translations for matrixcalc package.
+# Copyright (C) 2012 Přemysl Janouch
+# This file is distributed under the same license as the matrixcalc package.
+# Přemysl Janouch <p.janouch@gmail.com>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: matrixcalc 1.0.0\n"
+"Report-Msgid-Bugs-To: p.janouch@gmail.com\n"
+"POT-Creation-Date: 2012-05-29 16:36+0200\n"
+"PO-Revision-Date: 2012-05-29 16:40+0200\n"
+"Last-Translator: Přemysl Janouch <p.janouch@gmail.com>\n"
+"Language-Team: Czech\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: src/tokenizer.cpp:27
+msgid "invalid input"
+msgstr "neplatný vstup"
+
+#: src/tokenizer.cpp:28
+msgid "end of input"
+msgstr "konec vstupu"
+
+#: src/tokenizer.cpp:54
+msgid "integer"
+msgstr "celé číslo"
+
+#: src/tokenizer.cpp:55
+msgid "real number"
+msgstr "reálné číslo"
+
+#: src/tokenizer.cpp:56
+msgid "identifier"
+msgstr "indentifikátor"
+
+#: src/tokenizer.cpp:57
+msgid "string"
+msgstr "řetězec"
+
+#: src/environ.cpp:27
+msgid "Undefined variable: "
+msgstr "Nedefinovaná proměnná: "
+
+#: src/parser.cpp:28
+#, c-format
+msgid "Unexpected `%s' at %d:%d"
+msgstr "Neočekáváno \"%s\" na %d:%d"
+
+#: src/parseexpr.cpp:70
+msgid "Expression parsing error"
+msgstr "Chyba při zpracovávání výrazu"
+
+#: src/parseexpr.cpp:149
+msgid "Mismatched right parenthesis"
+msgstr "Nepřiléhající pravá závorka"
+
+#: src/parseexpr.cpp:191
+msgid "Mismatched left parenthesis"
+msgstr "Neuzavřená levá závorka"
+
+#: src/parseexpr.cpp:201
+msgid "The expression is empty"
+msgstr "Výraz je prázdný"
+
+#: src/matrixcalc.cpp:83
+msgid ""
+"Commands:\n"
+"  input NAME (ROWS, COLS)  Enter a matrix from keyboard\n"
+"  delete NAME | *          Delete the named variable, or everything\n"
+"  load NAME FILENAME       Load variable from a file\n"
+"  save NAME FILENAME       Save variable to a file\n"
+"  typeof NAME              Print out the type of the variable\n"
+"  set OPTION               Set program options\n"
+"  help                     Show this help\n"
+"  exit                     Exit the program\n"
+"\n"
+"  <expression>             Compute the expression and display\n"
+"                           the result on standard output\n"
+"  NAME = <expression>      Compute the expression and assign\n"
+"                           the result to a variable\n"
+"\n"
+"Options:\n"
+"  sparse  | dense          Use sparse or dense storage for new matrices\n"
+"  verbose | quiet          Be verbose when performing computations\n"
+"\n"
+"Operators in <expression>:\n"
+"  +, -, *, ^               Their usual meaning\n"
+"                           Note that ^ is capable of inverting matrices\n"
+"  det                      Compute matrix determinant\n"
+"  rank                     Compute rank of a matrix\n"
+"  transpose                Produce a transposed matrix\n"
+"  eliminate                Apply Gaussian elimination\n"
+msgstr ""
+"Příkazy:\n"
+"  input NAME (ROWS, COLS)  Zadat matici z klávesnice\n"
+"  delete NAME | *          Smazat jmenovanou proměnnou, nebo vše\n"
+"  load NAME FILENAME       Nahrát proměnnou ze souboru\n"
+"  save NAME FILENAME       Uložit proměnnou do souboru\n"
+"  typeof NAME              Vypsat typ proměnné\n"
+"  set OPTION               Nastavit volby programu\n"
+"  help                     Zobrazit tuto nápovědu\n"
+"  exit                     Ukončit program\n"
+"\n"
+"  <expression>             Spočítat výraz a zobrazit\n"
+"                           výsledek na standardním výstupu\n"
+"  NAME = <expression>      Spočítat výraz a přiřadit\n"
+"                           výsledek do dané proměnné\n"
+"\n"
+"Volby:\n"
+"  sparse  | dense          Použít řídké nebo husté úložiště pro nové matice\n"
+"  verbose | quiet          Být při provádění výpočtů výmluvný\n"
+"\n"
+"Operátory ve <výraz>:\n"
+"  +, -, *, ^               Jejich obvyklý význam\n"
+"                           Pozn.: ^ umí invertovat matice\n"
+"  det                      Spočítat determinant matice\n"
+"  rank                     Spočítat hodnost matice\n"
+"  transpose                Vytvořit transponovanou matici\n"
+"  eliminate                Aplikovat Gaussovu eliminaci\n"
+
+#: src/matrixcalc.cpp:139
+msgid "Not enough values"
+msgstr "Příliš málo hodnot"
+
+#: src/matrixcalc.cpp:147
+msgid "Too many values"
+msgstr "Příliš mnoho hodnot"
+
+#: src/matrixcalc.cpp:162
+#, c-format
+msgid "Enter a %dx%d matrix:\n"
+msgstr "Zadejte matici %dx%d:\n"
+
+#: src/matrixcalc.cpp:167
+msgid "Matrix input aborted"
+msgstr "Maticový vstup přerušen"
+
+#: src/matrixcalc.cpp:286
+msgid "Wrong dimensions"
+msgstr "Špatné rozměry"
+
+#: src/matrixcalc.cpp:314
+msgid "Loading failed"
+msgstr "Nahrávání selhalo"
+
+#: src/matrixcalc.cpp:325
+msgid "Saving failed"
+msgstr "Ukládání selhalo"
+
+#: src/matrixcalc.cpp:339
+msgid "Integer"
+msgstr "Celé číslo"
+
+#: src/matrixcalc.cpp:342
+msgid "Real number"
+msgstr "Reálné číslo"
+
+#: src/matrixcalc.cpp:347
+msgid "Sparse matrix"
+msgstr "Řídká matice"
+
+#: src/matrixcalc.cpp:349
+msgid "Dense matrix"
+msgstr "Hustá matice"
+
+#: src/matrixcalc.cpp:360
+msgid "Creating sparse matrices"
+msgstr "Vytvářím řídké matice"
+
+#: src/matrixcalc.cpp:365
+msgid "Creating dense matrices"
+msgstr "Vytvářím husté matice"
+
+#: src/matrixcalc.cpp:370
+msgid "Verbose mode set to on"
+msgstr "Od teď jsem výřečný"
+
+#: src/matrixcalc.cpp:375
+msgid "Verbose mode set to off"
+msgstr "Od teď nejsem výřečný"
+
+#: src/matrixcalc.cpp:379
+msgid "Unsupported option: "
+msgstr "Nepodporovaná volba: "
+
+#: src/matrixcalc.cpp:384
+msgid "Bye!"
+msgstr "Nashle!"
+
+#: src/matrixcalc.cpp:443
+msgid "Error: "
+msgstr "Chyba: "
+
+#: src/matrixcalc.cpp:459
+#, c-format
+msgid "Welcome to %s\n"
+msgstr "Vítejte v programu %s\n"
+
+#: src/matrixcalc.cpp:461
+msgid "Type `help' to get started"
+msgstr "Zadejte `help' pro vysvětlení"
+
+#: src/matrix.cpp:33
+msgid "Invalid matrix data"
+msgstr "Chybná maticová data"
+
+#: src/matrix.cpp:404
+msgid "Cannot add matrices of different dimensions"
+msgstr "Nelze sčítat matice s různými rozměry"
+
+#: src/matrix.cpp:423
+msgid "Cannot subtract matrices of different dimensions"
+msgstr "Nelze odečítat matice s různými rozměry"
+
+#: src/matrix.cpp:432
+msgid "The matrix has wrong number of rows for multiplication"
+msgstr "Matice má pro násobení chybný počet řádků"
+
+#: src/matrix.cpp:579
+msgid "Inverse matrix is only defined for rectangular matrices"
+msgstr "Inverzní matice je definována pouze pro čtvercové matice"
+
+#: src/matrix.cpp:592
+msgid "Only regular matrices are invertible"
+msgstr "Pouze regulární matice jsou invertovatelné"
+
+#: src/matrix.cpp:675
+msgid "Determinant is only defined for rectangular matrices"
+msgstr "Determinant je definován pouze pro čtvercové matice"
+
+#: src/value.cpp:32
+#, c-format
+msgid "Invalid operands to `%s': %s"
+msgstr "Chybné operandy pro \"%s\": %s"
+
+#: src/value.cpp:33
+#, c-format
+msgid "Invalid operands to `%s'"
+msgstr "Chybné operandy pro \"%s\""
+
+#: src/value.cpp:100
+#, c-format
+msgid "Swapping rows %u and %u\n"
+msgstr "Prohazuju řádky %u a %u\n"
+
+#: src/value.cpp:104
+#, c-format
+msgid "Subtracting %g times row %u from row %u\n"
+msgstr "Odčítám %g řádku %u od řádku %u\n"
+
+#: src/value.cpp:108
+#, c-format
+msgid "Multiplying row %u by %g\n"
+msgstr "Násobím řádek %u krát %g\n"
+
+#: src/value.cpp:112
+msgid "Resulting in:"
+msgstr "Což dává ve výsledku:"
+
+#: src/value.cpp:116
+msgid "Beginning Gaussian elimination:"
+msgstr "Začínám Gaussovu eliminaci:"
+
+#: src/value.cpp:128
+msgid "plus"
+msgstr "plus"
+
+#: src/value.cpp:172
+msgid "minus"
+msgstr "mínus"
+
+#: src/value.cpp:216
+msgid "multiplication"
+msgstr "násobení"
+
+#: src/value.cpp:280
+msgid "exponentiation"
+msgstr "mocnění"
+
+#: src/value.cpp:317
+msgid "# VERBOSE INVERSION"
+msgstr "# POPIS INVERZE"
+
+#: src/value.cpp:360
+msgid "unary minus"
+msgstr "unární mínus"
+
+#: src/value.cpp:368
+msgid "matrix rank"
+msgstr "hodnost matice"
+
+#: src/value.cpp:382
+msgid "matrix determinant"
+msgstr "determinant matice"
+
+#: src/value.cpp:404
+msgid "matrix transposition"
+msgstr "transpozice matice"
+
+#: src/value.cpp:416
+msgid "matrix elimination"
+msgstr "eliminace matice"
+
+#: src/value.cpp:423
+msgid "# VERBOSE ELIMINATION"
+msgstr "# POPIS ELIMINACE"
+

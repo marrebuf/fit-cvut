@@ -1,0 +1,12 @@
+This is my term project: a simple matrix calculator.
+
+To build this thing, run the following commands in sequence:
+  $ autoreconf -fiv
+  $ ./configure
+  $ make
+
+You might need to install the `autotools' package.
+
+In the end you should be able to run the program like this:
+  $ ./matrixcalc
+

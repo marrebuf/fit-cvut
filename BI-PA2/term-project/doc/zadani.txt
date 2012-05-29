@@ -1,0 +1,8 @@
+Maticová kalkulačka. Umožní spravovat (pojmenovávat, vypisovat, načítat, mazat,
+ukládat, zadávat z klávesnice) matice a provádět nad nimi operace (+ - *,
+transpozice, výpočet inverze, determinantu, určení hodnosti, Gaussova eliminační
+metoda). U Gaussovy eliminace naimplementujte variantu, kdy program vypisuje
+a komentuje jednotlivé kroky. Naimplementujte různé reprezentace matic (husté
+a řídké matice). Napište aplikaci tak, aby se se všemi reprezentacemi matic
+pracovalo stejně, nezávisle na jejich vnitřní reprezentaci.
+

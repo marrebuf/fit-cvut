@@ -1,0 +1,18 @@
+# Build files
+/build
+/po/*.gmo
+
+# Autotools
+/autom4te.cache
+/aclocal.m4
+/configure
+/config.h.in
+/Makefile.in
+/build-aux
+
+# Qt Creator files
+/*.config
+/*.creator
+/*.creator.user
+/*.files
+/*.includes

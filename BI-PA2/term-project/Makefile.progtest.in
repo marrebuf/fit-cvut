@@ -1,0 +1,27 @@
+SHELL = /bin/sh
+DOXYGEN = doxygen
+CXXFLAGS = -Wall -pedantic -Wno-long-long -O0 -ggdb -Isrc
+USERNAME = @USERNAME@
+
+all: compile doc
+compile: $(USERNAME)
+
+$(USERNAME): src/@PACKAGE_NAME@.cpp src/gettext.h \
+	src/parser.cpp src/parser.h src/parseexpr.cpp src/parseexpr.h \
+	src/matrix.cpp src/matrix.h src/tokenizer.h src/tokenizer.cpp \
+	src/evalnodes.h src/evalnodes.cpp src/environ.h src/environ.cpp \
+	src/value.h src/value.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $(filter %.cpp,$^)
+
+run: compile
+	./$(USERNAME)
+
+doc: Doxyfile
+	$(DOXYGEN) $<
+
+clean:
+	-rm -f $(USERNAME)
+	-rm -rf doc
+
+.PHONY: all compile doc clean
+

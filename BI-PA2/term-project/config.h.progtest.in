@@ -1,0 +1,9 @@
+/** The full name of this package. */
+#define PACKAGE_NAME "@PACKAGE_NAME@"
+
+/** The full name and version of this package. */
+#define PACKAGE_STRING "@PACKAGE_STRING@"
+
+/** The version of this package. */
+#define PACKAGE_VERSION "@PACKAGE_VERSION@"
+

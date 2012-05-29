@@ -1,0 +1,8 @@
+# List of source files which contain translatable strings.
+src/tokenizer.cpp
+src/environ.cpp
+src/parser.cpp
+src/parseexpr.cpp
+src/matrixcalc.cpp
+src/matrix.cpp
+src/value.cpp
