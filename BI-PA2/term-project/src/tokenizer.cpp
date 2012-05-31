@@ -180,12 +180,15 @@ Tokenizer::next_token ()
 		return result;
 	}
 
-	/* Regexp: [[:alpha:]][[:alnum:]]* */
-	if (isalpha (ch))
+	/* Regexp: [[:alpha:]_][[:alnum:]_]* */
+	if (isalpha (ch) || ch == '_')
 	{
 		do
+		{
 			result.s += ch;
-		while (isalnum (ch = get ()));
+			ch = get ();
+		}
+		while (isalnum (ch) || ch == '_');
 		put_back (ch);
 
 		/* Is it a keyword? */
