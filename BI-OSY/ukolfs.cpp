@@ -187,7 +187,7 @@ typedef struct
 {
 	unsigned *blk_id;           //! The current indirect block.
 	DCEntry *pentry;            //! Cache entry for the current block,
-								//! or the previous one if we're at the end.
+	                            //! or the previous one if we're at the end.
 	unsigned i_ext;             //! Extent iterator.
 	unsigned offset;            //! Where we want to get,
 	                            //! offset into the extent on return.
@@ -221,9 +221,9 @@ static void     fs_truncate      (unsigned short inode);
 typedef struct
 {
 	BMAP_TYPE *bits;            //! The actual bitmap data,
-	                            //! beginning at the least significant bit.
+	                            //! beginning with the least significant bit.
 	unsigned size;              //! Size of the bitmap in BMAP_UNIT's.
-	unsigned free_iter;         //! Free block iterator (max. `size').
+	unsigned free_iter;         //! Free blocks iterator (max. `size').
 	unsigned full : 1;          //! Don't search the whole bitmap once
 	                            //! we detect there are no free blocks.
 }
@@ -383,31 +383,31 @@ bmap_alloc_prealloc (unsigned short *len)
 	unsigned blk_id = bmap_find_free_extent (&n_bits);
 	*len = n_bits;
 
-	if (blk_id != BLK_INVALID)
+	if (blk_id == BLK_INVALID)
+		return BLK_INVALID;
+
+	unsigned unit_id = blk_id / BMAP_UNIT;
+	unsigned bit_id  = blk_id % BMAP_UNIT;
+
+	/* Because the block of bits may span multiple block units,
+	 * the operation is split in three parts. */
+
+	unsigned init_bits = n_bits;
+	if (bit_id + init_bits > BMAP_UNIT)
+		init_bits = BMAP_UNIT - bit_id;
+
+	assert (sizeof (unsigned long) > sizeof (BMAP_TYPE));
+	bm->bits[unit_id++] |= (((1UL << init_bits) - 1) << bit_id);
+	n_bits -= init_bits;
+
+	while (n_bits > BMAP_UNIT)
 	{
-		unsigned unit_id = blk_id / BMAP_UNIT;
-		unsigned bit_id  = blk_id % BMAP_UNIT;
-
-		/* Because the block of bits may span multiple block units,
-		 * the operation is split in three parts. */
-
-		unsigned init_bits = n_bits;
-		if (bit_id + init_bits > BMAP_UNIT)
-			init_bits = BMAP_UNIT - bit_id;
-
-		assert (sizeof (unsigned long) > sizeof (BMAP_TYPE));
-		bm->bits[unit_id++] |= (((1UL << init_bits) - 1) << bit_id);
-		n_bits -= init_bits;
-
-		while (n_bits > BMAP_UNIT)
-		{
-			bm->bits[unit_id++] = ~0;
-			n_bits -= BMAP_UNIT;
-		}
-
-		if (n_bits)
-			bm->bits[unit_id] |= ((1UL << n_bits) - 1);
+		bm->bits[unit_id++] = ~0;
+		n_bits -= BMAP_UNIT;
 	}
+
+	if (n_bits)
+		bm->bits[unit_id] |= ((1UL << n_bits) - 1);
 
 	return blk_id;
 }

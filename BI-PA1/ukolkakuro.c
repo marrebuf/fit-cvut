@@ -20,7 +20,7 @@
  *  of the "corner case" tests. I couldn't find the cause.
  *  (I don't have access to the tests.)
  *
- *  It's got a nice visual debug output (-DDEBUG). Yay!
+ *  It's got a nice visual debug output mode (-DDEBUG). Yay!
  *
  */
 

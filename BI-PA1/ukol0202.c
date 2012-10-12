@@ -3,7 +3,6 @@
 #include <math.h>
 #include <assert.h>
 
-/** Jenom takové výpomocné makro. */
 #define CHECK(cond) \
 	if (!(cond)) { \
 		puts ("Nespravny vstup."); \

@@ -78,74 +78,77 @@ message_run (Key key, int shift, const TMESSAGE *in)
 
 /* ===== Secret service =================================================== */
 
-/** Decryption worker. */
+static void
+worker_iteration (SecretSvcCtx *ctx)
+{
+	pthread_mutex_lock (&ctx->mtx);
+	while (!ctx->units)
+	{
+		if (ctx->finishing)
+		{
+			pthread_mutex_unlock (&ctx->mtx);
+			pthread_exit (NULL);
+		}
+
+		pthread_cond_wait (&ctx->cond, &ctx->mtx);
+	}
+
+	/* Unlink a unit. */
+	WorkUnit unit = *ctx->units;
+	free (ctx->units);
+	ctx->units = unit.next;
+	pthread_mutex_unlock (&ctx->mtx);
+
+	/* Compute the unit. */
+	MsgCtx *msg_ctx = unit.msg_ctx;
+	const TMESSAGE *msg = msg_ctx->msg_in;
+
+	int max = unit.shift + SHIFT_SIZE;
+	if (max > msg->m_Length)
+		max = msg->m_Length;
+
+	for (int sh = unit.shift; sh < max; sh++)
+	{
+		/* If the run is successful, append the result. */
+		if (message_run (ctx->keys[unit.key], sh, msg))
+		{
+			pthread_mutex_lock (&ctx->msg_mtx);
+
+			if (msg_ctx->n_res == msg_ctx->res_size)
+				msg_ctx->res = (TRESULTS *)
+					realloc (msg_ctx->res, sizeof *msg_ctx->res
+						* (msg_ctx->res_size <<= 1));
+
+			msg_ctx->res[msg_ctx->n_res].m_Agent = unit.key;
+			msg_ctx->res[msg_ctx->n_res].m_Shift = sh;
+			msg_ctx->n_res++;
+
+			pthread_mutex_unlock (&ctx->msg_mtx);
+		}
+	}
+
+	pthread_mutex_lock (&ctx->msg_mtx);
+	if (!--unit.msg_ctx->units_remaining)
+	{
+		pthread_mutex_unlock (&ctx->msg_mtx);
+
+		/* Send results to the officer. */
+		ctx->officer (msg_ctx->msg_in, msg_ctx->res, msg_ctx->n_res);
+		free (msg_ctx->res);
+		free (msg_ctx);
+	}
+	else
+		pthread_mutex_unlock (&ctx->msg_mtx);
+}
+
+/** Decryption worker thread. */
 static void *
 worker (void *param)
 {
 	SecretSvcCtx *ctx = (SecretSvcCtx *) param;
 
 	while (true)
-	{
-
-		pthread_mutex_lock (&ctx->mtx);
-		while (!ctx->units)
-		{
-			if (ctx->finishing)
-			{
-				pthread_mutex_unlock (&ctx->mtx);
-				pthread_exit (NULL);
-			}
-
-			pthread_cond_wait (&ctx->cond, &ctx->mtx);
-		}
-
-		/* Unlink a unit. */
-		WorkUnit unit = *ctx->units;
-		free (ctx->units);
-		ctx->units = unit.next;
-		pthread_mutex_unlock (&ctx->mtx);
-
-		/* Compute the unit. */
-		MsgCtx *msg_ctx = unit.msg_ctx;
-		const TMESSAGE *msg = msg_ctx->msg_in;
-
-		int max = unit.shift + SHIFT_SIZE;
-		if (max > msg->m_Length)
-			max = msg->m_Length;
-
-		for (int sh = unit.shift; sh < max; sh++)
-		{
-			/* If the run is successful, append the result. */
-			if (message_run (ctx->keys[unit.key], sh, msg))
-			{
-				pthread_mutex_lock (&ctx->msg_mtx);
-
-				if (msg_ctx->n_res == msg_ctx->res_size)
-					msg_ctx->res = (TRESULTS *)
-						realloc (msg_ctx->res, sizeof *msg_ctx->res
-							* (msg_ctx->res_size <<= 1));
-
-				msg_ctx->res[msg_ctx->n_res].m_Agent = unit.key;
-				msg_ctx->res[msg_ctx->n_res].m_Shift = sh;
-				msg_ctx->n_res++;
-
-				pthread_mutex_unlock (&ctx->msg_mtx);
-			}
-		}
-
-		pthread_mutex_lock (&ctx->msg_mtx);
-		if (!--unit.msg_ctx->units_remaining)
-		{
-			pthread_mutex_unlock (&ctx->msg_mtx);
-
-			/* Send results to the officer. */
-			ctx->officer (msg_ctx->msg_in, msg_ctx->res, msg_ctx->n_res);
-			free (msg_ctx->res);
-			free (msg_ctx);
-		}
-		else
-			pthread_mutex_unlock (&ctx->msg_mtx);
-	}
+		worker_iteration (ctx);
 
 	return NULL;
 }
