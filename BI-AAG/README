@@ -1,0 +1,22 @@
+csolver and cxxsolver provide the same functionality, which is solving homework
+within milliseconds.  The second one was created to remind myself of C++ and
+to explore the newest version of the standard.  It became slower than its C99
+counterpart, though.  The only area where it is actually any better is the
+simplicity of extending it to handle a bigger number of states (just change the
+‘max_states’ constant in the Table class).
+
+The machine code generation part is there just for fun.  Sometime I'd like to
+add an algorithm to convert the machine to a regular expression, too.
+
+The C++ version should theoretically compile fine under Microsoft Visual Studio
+2012, however Win64 code generation has not yet been ported from the C version.
+
+You can try the tool on the provided sample input file ‘nfa’:
+  ./csolver < nfa
+
+Or, if you have a compatible machine and wish to test the machine code generated
+for the amd64 architecture, you can run it like this:
+  ./csolver nfa
+
+Remember to tell it with Ctrl-D (or Ctrl-Z) where the input has ended.
+
