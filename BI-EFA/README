@@ -1,0 +1,20 @@
+bucketsort.cpp was our first homework, which I simply finished as fast as
+I could to get the points.  It involved implementing the bucketsort algorithm
+given some constraints on the number of certain operations.  Someone else had
+already made a satisfying test environment before so I used that, which is also
+why there are no rules in the Makefile to compile it.
+
+btreeplus.cpp was the second one.  As you can guess from the filename, it indeed
+contains an implementation of a B+tree.  Because I had already implemented
+a B-tree (note the minus) in the same year, it wasn't all that complicated for
+me, although it still took significant time to complete.
+
+If you run the resulting program, it will generate pictures of the tree just
+after inserting and deleting elements.  Or from any moment you change it to.
+You must have GraphViz installed for it to work, though.
+
+sorttest.cpp is just a toy benchmark I put together.  Again, if you have GnuPlot
+with GUI support, it will show you a graph with the results.  I was actually
+quite surprised to see that std::sort() can beat qsort() by a factor of two.
+Oh, and it's a C++11 program.
+
