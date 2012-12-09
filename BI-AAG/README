@@ -20,3 +20,7 @@ for the amd64 architecture, you can run it like this:
 
 Remember to tell it with Ctrl-D (or Ctrl-Z) where the input has ended.
 
+janoupre.lex generates a program that replaces integer additions within its
+input with the value of these expressions, and blindly copies the rest.  And
+yes, I know that the code is a bit overcomplicated.
+
