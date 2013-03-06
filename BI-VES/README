@@ -1,0 +1,7 @@
+Here lies a toy simulator for the graphics part of libves written in GTK+3.
+The idea was to make it possible to use the same source file for both simulating
+and compiling the main source file for flashing it into the microcontroller.
+
+The copyright status of these files is questionable, although noone's going to
+complain in practice.
+
