@@ -5,9 +5,9 @@
 #include <string.h>
 #include <math.h>
 
-#include <libves/display.h>
-#include <libves/delay.h>
-#include <libves/font.h>
+#include "libves/display.h"
+#include "libves/delay.h"
+#include "libves/font.h"
 
 // Set the clock to 16MHz etc.
 _CONFIG1 (JTAGEN_OFF & GCP_OFF & GWRP_OFF & COE_OFF \
@@ -251,6 +251,6 @@ main ()
 		delay_loop_ms (100);
 	}
 
-    return 0;
+	return 0;
 }
 

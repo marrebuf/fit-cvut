@@ -2,6 +2,11 @@ Here lies a toy simulator for the graphics part of libves written in GTK+3.
 The idea was to make it possible to use the same source file for both simulating
 and compiling the main source file for flashing it into the microcontroller.
 
-The copyright status of these files is questionable, although noone's going to
+pic-only/ contains finished assignments that can't be simulated (yet).
+
+ves-serial-control/ is a toy for communicating with the program in serial.c.
+I don't really like C# but it was extremely convenient for this task.
+
+The copyright status of many files is questionable, although noone's going to
 complain in practice.
 

@@ -1,0 +1,34 @@
+Notes on watching register writes
+=================================
+
+Make two read-only guard pages and switch between them.
+
+extern volatile void *__cur_guard;
+
+In the SIGSEGV handler, unlock the guard, reset the __cur_guard pointer to point
+into the other page, disable writing into that page, and return from the handler
+to let the code write the new value.
+
+If the address doesn't match a guard, abort the process (or somehow reset to the
+default SIGSEGV handler).
+
+The regular variables and bitfields need to be kept in sync.
+
+// Problem: don't know how to read the new value
+#define IEC0 (*(uint16_t *)(__cur_guard + __OFFSET_IEC0))
+#define IEC0bits (*(IEC0BITS *)(__cur_guard + __OFFSET_IEC0BITS))
+
+// Problematic as well (reading also writes, fragile) but works
+#define IEC0 *(uint16_t *)(__cur_guard + __OFFSET_IEC0) = __IEC0
+// Can't read like this at all
+#define T2CONbits *(MYT2CONBITS *)(__cur_guard + __OFFSET_T2CONBITS)
+#define T32 T32 = __BITSHOLDER
+
+Retrieving the left side could invoke a trap in ptrace(), and from there we
+could single-step instructions until either 1. a write is detected, 2. a limit
+is reached.  This however requires a fork() and adding an interprocess
+communication layer, which is ridiculously complicated.
+
+#define IEC0 (__trap (), *(uint16_t *)(__cur_guard + __OFFSET_IEC0))
+#define IEC0bits (__trap (), *(IEC0BITS *)(__cur_guard + __OFFSET_IEC0BITS))
+

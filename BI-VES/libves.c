@@ -13,6 +13,8 @@
 #include <libves/led.h>
 #include <libves/pl2303.h>
 
+#include "libves.h"
+
 /* Program for the controller. */
 extern int __main (void);
 
@@ -27,6 +29,31 @@ static int g_start_line = 0;
 static int g_contrast = 0xff;
 static int g_flipped = 0;
 static int g_inverse = 0;
+
+static gboolean
+on_key_press (GtkWidget *w, GdkEventKey *e, GCallback cb)
+{
+	g_return_val_if_fail (cb != 0, FALSE);
+	((void (*) (GdkEventKey *)) cb) (e);
+	return FALSE;
+}
+
+static gboolean
+on_key_release (GtkWidget *w, GdkEventKey *e, GCallback cb)
+{
+	g_return_val_if_fail (cb != 0, FALSE);
+	((void (*) (GdkEventKey *)) cb) (e);
+	return FALSE;
+}
+
+void
+libves_register_key_handler (void (*handler) (GdkEventKey *))
+{
+	g_signal_connect (g_wm, "key-press-event",
+		G_CALLBACK (on_key_press), (gpointer) handler);
+	g_signal_connect (g_wm, "key-release-event",
+		G_CALLBACK (on_key_release), (gpointer) handler);
+}
 
 static void
 window_on_destroyed (GObject *object, gpointer user_data)
@@ -149,6 +176,8 @@ main (int argc, char *argv[])
 
 	g_wm = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	g_signal_connect (g_wm, "destroy", G_CALLBACK (window_on_destroyed), NULL);
+
+	gtk_widget_add_events (g_wm, GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
 
 	g_surface = cairo_image_surface_create
 		(CAIRO_FORMAT_RGB24, SCREEN_WIDTH, SCREEN_HEIGHT);
